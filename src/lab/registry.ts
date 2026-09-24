@@ -1630,6 +1630,15 @@ export const lab: LabEntry[] = [
     keywords: "shortcut hotkey keybinding recorder keyboard settings keycap",
     previewScale: 0.75,
   },
+  {
+    slug: "storage-meter",
+    isNew: true,
+    name: "Storage meter",
+    category: "data",
+    description: "Point at any slice to read its size, then clear the cache and watch the total count down.",
+    keywords: "storage usage disk meter bar legend quota clean",
+    previewScale: 0.6,
+  },
   // new-component:entries
 ];
 

@@ -193,6 +193,7 @@ const demos: Record<string, ComponentType> = {
   "autosave-status": dynamic(() => import("./components/autosave-status")),
   "reactions": dynamic(() => import("./components/reactions")),
   "shortcut-recorder": dynamic(() => import("./components/shortcut-recorder")),
+  "storage-meter": dynamic(() => import("./components/storage-meter")),
   // new-component:entries
 };
 
