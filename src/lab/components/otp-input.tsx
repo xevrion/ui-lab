@@ -77,7 +77,8 @@ export function OtpInput({
   // it back instead of being lost. Keys meant for another field are left
   // alone.
   useEffect(() => {
-    if (!autoFocus) return;
+    // Inert copies, like the index preview, never take focus or keys.
+    if (!autoFocus || inputRef.current?.closest("[inert]")) return;
     inputRef.current?.focus({ preventScroll: true });
     const onKeyDown = (e: KeyboardEvent) => {
       if (!/^\d$/.test(e.key) || e.metaKey || e.ctrlKey || e.altKey) return;

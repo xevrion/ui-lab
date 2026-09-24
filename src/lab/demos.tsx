@@ -194,6 +194,7 @@ const demos: Record<string, ComponentType> = {
   "reactions": dynamic(() => import("./components/reactions")),
   "shortcut-recorder": dynamic(() => import("./components/shortcut-recorder")),
   "storage-meter": dynamic(() => import("./components/storage-meter")),
+  "status-picker": dynamic(() => import("./components/status-picker")),
   // new-component:entries
 };
 

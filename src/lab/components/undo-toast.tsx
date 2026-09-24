@@ -143,6 +143,8 @@ export function UndoToast({
     const onKey = (e: KeyboardEvent) => {
       if (e.key.toLowerCase() !== "z" || !(e.metaKey || e.ctrlKey)) return;
       if (e.shiftKey || e.altKey || isEditable(e.target)) return;
+      // Inert copies, like the index preview, stay quiet.
+      if (rootRef.current?.closest("[inert]")) return;
       e.preventDefault();
       undo();
     };

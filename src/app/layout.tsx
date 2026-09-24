@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { LabSidebar } from "@/components/lab-sidebar";
 import { SiteFooter } from "@/components/site-footer";
@@ -80,7 +81,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {/* Before first paint, so a saved theme never flashes the other one.
+            Next's Script keeps it out of client re-renders (a 404 renders
+            the layout on the client, and a raw script tag warns there). */}
+        <Script id="theme" strategy="beforeInteractive">
+          {themeScript}
+        </Script>
       </head>
       <body className="min-h-full">
         {/* Sidebar and page side by side on wide screens; the page column

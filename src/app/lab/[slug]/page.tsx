@@ -21,6 +21,10 @@ export function generateStaticParams() {
   return lab.map(({ slug }) => ({ slug }));
 }
 
+// Every slug is known at build, so any other one is a plain 404 at the
+// routing level, served like any unknown link, never rendered on demand.
+export const dynamicParams = false;
+
 export async function generateMetadata({
   params,
 }: PageProps<"/lab/[slug]">): Promise<Metadata> {

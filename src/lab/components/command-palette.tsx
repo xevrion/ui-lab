@@ -143,13 +143,17 @@ export function CommandPalette({
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key.toLowerCase() !== "k" || !(e.metaKey || e.ctrlKey)) return;
       if (e.altKey || e.shiftKey || e.repeat) return;
-      // Browsers bind Ctrl+K to address bar search.
+      // Inert copies, like the index preview, stay quiet.
+      if (triggerRef.current?.closest("[inert]")) return;
+      // Browsers bind Ctrl+K to address bar search. Marking it handled also
+      // tells the site's own search to stand aside on this page.
       e.preventDefault();
       if (open) close();
       else show();
     };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    // Capture, so it runs before the site's search, which listens later.
+    window.addEventListener("keydown", onKeyDown, true);
+    return () => window.removeEventListener("keydown", onKeyDown, true);
   }, [open, close, show]);
 
   useEffect(() => {

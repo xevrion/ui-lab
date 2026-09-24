@@ -1639,6 +1639,15 @@ export const lab: LabEntry[] = [
     keywords: "storage usage disk meter bar legend quota clean",
     previewScale: 0.6,
   },
+  {
+    slug: "status-picker",
+    isNew: true,
+    name: "Status picker",
+    category: "inputs",
+    description: "Pick a status and the badge on your avatar turns into its shape: a dot, a moon, a stop sign or a ring.",
+    keywords: "status presence away do not disturb avatar badge menu online",
+    previewScale: 0.65,
+  },
   // new-component:entries
 ];
 

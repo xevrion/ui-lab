@@ -21,6 +21,8 @@ type Item = Pick<
 > & { label: string };
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const;
+// Dispatch this on window to open search from anywhere on the site.
+export const OPEN_SEARCH = "lab:open-search";
 const noop = () => () => {};
 const isMac = () => /Mac|iPhone|iPad/.test(navigator.platform);
 const isClient = () => true;
@@ -79,12 +81,23 @@ export function HeaderSearch() {
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key.toLowerCase() !== "k" || !(e.metaKey || e.ctrlKey)) return;
+      // A demo on the page (the command palette) already took it.
+      if (e.defaultPrevented) return;
       e.preventDefault();
       void loadItems();
       setOpen((o) => !o);
     };
+    // Other parts of the site (the 404 page) can open it too.
+    const onAsk = () => {
+      void loadItems();
+      setOpen(true);
+    };
     document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
+    window.addEventListener(OPEN_SEARCH, onAsk);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener(OPEN_SEARCH, onAsk);
+    };
   }, []);
 
   return (

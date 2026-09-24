@@ -186,6 +186,7 @@ import AutosaveStatusDemo from "./components/autosave-status";
 import ReactionsDemo from "./components/reactions";
 import ShortcutRecorderDemo from "./components/shortcut-recorder";
 import StorageMeterDemo from "./components/storage-meter";
+import StatusPickerDemo from "./components/status-picker";
 // new-component:imports
 
 // The index shows every demo at once, so one static bundle beats 27 separate
@@ -378,5 +379,6 @@ export const previews: Record<string, ComponentType> = {
   "reactions": ReactionsDemo,
   "shortcut-recorder": ShortcutRecorderDemo,
   "storage-meter": StorageMeterDemo,
+  "status-picker": StatusPickerDemo,
   // new-component:entries
 };

@@ -82,6 +82,8 @@ export function ExpandingSearch({
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== shortcut || open || e.defaultPrevented) return;
       if (e.metaKey || e.ctrlKey || e.altKey || isEditable(e.target)) return;
+      // Inert copies, like the index preview, stay quiet.
+      if (rootRef.current?.closest("[inert]")) return;
       e.preventDefault();
       expand();
     };
