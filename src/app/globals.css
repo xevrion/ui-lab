@@ -24,6 +24,9 @@
   /* Red pen ink for hand-drawn annotations, like the "new" mark. Kept apart
      from danger so neither changes the other's meaning. */
   --marker: light-dark(#d93d31, #ff6b5f);
+  /* Keyboard focus: the text colour at about a third, so it's clearly
+     there without a hard black line. Still over 3:1 against the page. */
+  --focus-ring: light-dark(oklch(0.2 0 0 / 0.38), oklch(0.95 0 0 / 0.45));
   --shadow-raised:
     0 0 0 1px light-dark(oklch(0 0 0 / 0.06), oklch(1 0 0 / 0.08)),
     0 1px 2px light-dark(oklch(0 0 0 / 0.06), oklch(0 0 0 / 0.4)),
@@ -79,5 +82,34 @@ body {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
+  }
+}
+
+/* One focus ring for the whole site. Components only say where the ring
+   goes (width and offset); its colour and its arrival live here. Left
+   outside any layer on purpose, so it wins over the per-component colour
+   utilities. It fades in and settles from a little further out, rather
+   than stamping on. An animation, not a transition, so it doesn't fight
+   the transition lists components set for their own motion. */
+:focus-visible,
+:focus-visible::after {
+  outline-color: var(--focus-ring);
+}
+:focus-visible {
+  animation: focus-ring 240ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+:focus-visible::after {
+  animation: focus-ring 240ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+@keyframes focus-ring {
+  from {
+    outline-color: transparent;
+    outline-offset: 6px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :focus-visible,
+  :focus-visible::after {
+    animation: none;
   }
 }
