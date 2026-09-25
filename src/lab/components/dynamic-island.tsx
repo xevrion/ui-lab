@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useIsPresent } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { cn } from "@/lib/cn";
+import { usePreviewPlay } from "@/lab/preview-play";
 
 export type IslandState = "idle" | "timer" | "music" | "ring";
 
@@ -306,6 +307,7 @@ const OPTIONS: { value: IslandState; label: string }[] = [
 const TITLE = "Midnight City";
 
 export default function DynamicIslandDemo() {
+  const play = usePreviewPlay();
   const [state, setState] = useState<IslandState>("timer");
   // Starts partway in so the timer reads as already running.
   const [elapsed, setElapsed] = useState(12);
@@ -314,10 +316,10 @@ export default function DynamicIslandDemo() {
   const buttons = useRef(new Map<IslandState, HTMLButtonElement>());
 
   useEffect(() => {
-    if (state !== "timer") return;
+    if (state !== "timer" || play === false) return;
     const id = setInterval(() => setElapsed((s) => s + 1), 1000);
     return () => clearInterval(id);
-  }, [state]);
+  }, [state, play]);
 
   // Announced once per change rather than on every tick, so a screen
   // reader is not read the clock every second.

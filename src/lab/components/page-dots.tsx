@@ -10,6 +10,7 @@ import {
 } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { cn } from "@/lib/cn";
+import { usePreviewPlay } from "@/lab/preview-play";
 
 const DOT = 6;
 const PILL = 20;
@@ -200,6 +201,7 @@ const ICON_SWAP = { type: "spring", duration: 0.3, bounce: 0 } as const;
 
 export default function PageDotsDemo() {
   const reduceMotion = useReducedMotion();
+  const play = usePreviewPlay();
   const scrollerRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const regionRef = useRef<HTMLDivElement>(null);
@@ -207,7 +209,7 @@ export default function PageDotsDemo() {
 
   // null until the viewer picks, so reduced motion can default to paused.
   const [choice, setChoice] = useState<boolean | null>(null);
-  const playing = choice ?? !reduceMotion;
+  const playing = (choice ?? !reduceMotion) && play !== false;
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [scrolling, setScrolling] = useState(false);

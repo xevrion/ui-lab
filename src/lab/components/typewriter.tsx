@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { cn } from "@/lib/cn";
+import { usePreviewPlay } from "@/lab/preview-play";
 
 // Per-character typing delay: a base plus up to this much jitter, which lands
 // around 8 to 14 keys a second, the pace of someone who knows the word.
@@ -69,13 +70,14 @@ export function Typewriter({
   className?: string;
 }) {
   const reduceMotion = useReducedMotion();
+  const play = usePreviewPlay();
   const rootRef = useRef<HTMLSpanElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
   const [swapIndex, setSwapIndex] = useState(0);
 
   // Typing writes straight to the DOM, so a keystroke never re-renders React.
   useEffect(() => {
-    if (reduceMotion) return;
+    if (reduceMotion || play === false) return;
     const root = rootRef.current;
     const text = textRef.current;
     if (!root || !text || words.length === 0) return;
@@ -128,18 +130,19 @@ export function Typewriter({
       // Leaves the DOM as React rendered it, so a words change or remount
       // starts clean instead of from a half typed, selected word.
       text.textContent = words[0] ?? "";
+      root.dataset.typing = "false";
       root.dataset.selecting = "false";
     };
-  }, [reduceMotion, words]);
+  }, [reduceMotion, words, play]);
 
   useEffect(() => {
-    if (!reduceMotion || words.length < 2) return;
+    if (!reduceMotion || words.length < 2 || play === false) return;
     const id = setInterval(
       () => setSwapIndex((i) => (i + 1) % words.length),
       SWAP_EVERY,
     );
     return () => clearInterval(id);
-  }, [reduceMotion, words.length]);
+  }, [reduceMotion, words.length, play]);
 
   const longest = words.reduce((a, b) => (b.length > a.length ? b : a), "");
   const sentence = `${prefix} ${new Intl.ListFormat("en", {

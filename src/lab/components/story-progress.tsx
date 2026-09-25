@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { cn } from "@/lib/cn";
+import { usePreviewPlay } from "@/lab/preview-play";
 
 // Long enough to read a short caption, the same as Instagram's default.
 const DURATION = 4000;
@@ -21,6 +22,7 @@ export function StoryProgress({
   className?: string;
 }) {
   const reduce = useReducedMotion();
+  const play = usePreviewPlay();
   const [index, setIndex] = useState(0);
   // Auto-advancing stays silent; only stories the user moved to are announced.
   const [manual, setManual] = useState(false);
@@ -29,7 +31,7 @@ export function StoryProgress({
   const [toggled, setToggled] = useState(false);
   const [hidden, setHidden] = useState(false);
 
-  const paused = pressing || toggled || hidden;
+  const paused = pressing || toggled || hidden || play === false;
   const pausedRef = useRef(paused);
   const fills = useRef<(HTMLSpanElement | null)[]>([]);
   const timer = useRef<Animation>(null);

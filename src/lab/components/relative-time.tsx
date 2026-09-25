@@ -354,6 +354,8 @@ export default function RelativeTimeDemo() {
   const play = usePreviewPlay();
   // Undefined: the real clock. Only the hover show pins it.
   const [pinned, setPinned] = useState<number>();
+  // Index clocks stay pinned between shows, so idle cards need no timers.
+  const clock = play === null ? pinned : (pinned ?? now ?? undefined);
 
   useEffect(() => {
     if (play !== true) return;
@@ -375,7 +377,7 @@ export default function RelativeTimeDemo() {
       }, wait);
     };
     step(0);
-    // Unhovering hands the labels back to the live clock; they roll home.
+    // Unhovering rolls the labels back to the pinned preview time.
     return () => {
       clearTimeout(timer);
       setPinned(undefined);
@@ -387,19 +389,19 @@ export default function RelativeTimeDemo() {
       {/* Each clause wraps as a unit, so a narrow line never starts on a dot. */}
       <span className="whitespace-nowrap">
         <span className="font-medium text-foreground">Ana Ruiz</span> opened
-        this <RelativeTime now={pinned} date={ago(2 * HOUR + 14 * MIN)} />
+        this <RelativeTime now={clock} date={ago(2 * HOUR + 14 * MIN)} />
         <span aria-hidden className="pl-1.5">
           ·
         </span>
       </span>{" "}
       <span className="whitespace-nowrap">
-        edited <RelativeTime now={pinned} date={ago(4 * MIN + 51 * SEC)} />
+        edited <RelativeTime now={clock} date={ago(4 * MIN + 51 * SEC)} />
         <span aria-hidden className="pl-1.5">
           ·
         </span>
       </span>{" "}
       <span className="whitespace-nowrap">
-        synced <RelativeTime now={pinned} date={ago(12 * SEC)} />
+        synced <RelativeTime now={clock} date={ago(12 * SEC)} />
       </span>
     </p>
   );
