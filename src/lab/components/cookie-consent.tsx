@@ -690,9 +690,9 @@ export default function CookieConsentDemo() {
     <div className="relative h-[750px] w-[min(560px,100%)] overflow-hidden rounded-[20px] bg-surface sm:h-[560px]">
       <article className="px-7 pt-7">
         <p className="text-[13px] text-muted">Field Notes · 6 min read</p>
-        <h1 className="mt-2 text-xl font-semibold text-foreground">
+        <h2 className="mt-2 text-xl font-semibold text-foreground">
           Cold brew at home, without the sludge
-        </h1>
+        </h2>
         <p className="mt-3 text-sm leading-6 text-muted">
           Grind coarse, steep for eighteen hours in the fridge, and filter
           twice. The second pass through a paper filter is what takes it from
