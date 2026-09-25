@@ -49,6 +49,6 @@ export function entryKeywords({ name, keywords }: LabEntry) {
     "tailwind",
     "motion",
     "animation",
-    "component",
+    "interaction experiment",
   ];
 }

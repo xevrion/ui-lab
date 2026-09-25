@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   keywords: [
-    "react components",
+    "react experiments",
     "interaction design",
-    "ui components",
+    "ui experiments",
     "micro-interactions",
     "animation",
     "tailwind css",
