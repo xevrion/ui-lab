@@ -252,12 +252,7 @@ export function FeatureSpotlight({
                     >
                       {feature.title}
                     </span>
-                    <span
-                      className={cn(
-                        "text-[14px] leading-relaxed text-pretty text-muted transition-opacity duration-300 ease-out",
-                        on ? "opacity-100" : "opacity-60",
-                      )}
-                    >
+                    <span className="text-[14px] leading-relaxed text-pretty text-foreground/70">
                       {feature.body}
                     </span>
                   </button>
