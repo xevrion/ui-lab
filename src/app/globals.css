@@ -70,6 +70,20 @@ body {
   color: var(--foreground);
 }
 
+@keyframes ul-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+.ul-stroke {
+  stroke-dasharray: 1;
+  animation: ul-draw 700ms cubic-bezier(0.65, 0, 0.35, 1) 350ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ul-stroke { animation: none; }
+}
+
 /* Many experiments here are press-and-hold. On a phone, a long press on a
    control would otherwise select its label and pop the text callout or
    context menu over it. Layered as base, so any utility can still opt a

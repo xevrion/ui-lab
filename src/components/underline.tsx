@@ -9,11 +9,6 @@ export function Underline() {
       className="pointer-events-none absolute -bottom-[0.14em] left-[-6%] h-[0.32em] w-[112%] overflow-visible text-marker"
       fill="none"
     >
-      <style>{`
-        @keyframes ul-draw { from { stroke-dashoffset: 1 } to { stroke-dashoffset: 0 } }
-        .ul-stroke { stroke-dasharray: 1; animation: ul-draw 700ms cubic-bezier(0.65,0,0.35,1) 350ms both }
-        @media (prefers-reduced-motion: reduce) { .ul-stroke { animation: none } }
-      `}</style>
       {/* Swept right, then a quick flick back under itself, like a pen
           that didn't lift. */}
       <path
