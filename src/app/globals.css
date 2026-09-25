@@ -18,7 +18,7 @@
   --foreground: light-dark(#171717, #ededed);
   --surface: light-dark(#f5f5f5, #161616);
   --border: light-dark(#e5e5e5, #262626);
-  --muted: light-dark(#737373, #8f8f8f);
+  --muted: light-dark(#6b6b6b, #8f8f8f);
   /* Deeper in light mode so white text on it clears 4.5:1 (5.2 vs 3.9). */
   --danger: light-dark(#ce2c31, #e5484d);
   /* Red pen ink for hand-drawn annotations, like the "new" mark. Kept apart

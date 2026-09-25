@@ -10,7 +10,7 @@ export function SidebarNav() {
         <div key={g.id}>
           <p className="mb-1.5 flex items-baseline justify-between px-3 text-xs font-medium text-muted">
             {g.label}
-            <span className="font-normal tabular-nums opacity-70">
+            <span className="font-normal tabular-nums">
               {g.items.length}
             </span>
           </p>
