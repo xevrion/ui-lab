@@ -1648,6 +1648,24 @@ export const lab: LabEntry[] = [
     keywords: "status presence away do not disturb avatar badge menu online",
     previewScale: 0.65,
   },
+  {
+    slug: "mood-slider",
+    isNew: true,
+    name: "Mood slider",
+    category: "inputs",
+    description: "The thumb is a face that frowns, grins and leans into the drag as you rate your day.",
+    keywords: "mood slider emoji face rating feedback range feelings",
+    previewScale: 0.8,
+  },
+  {
+    slug: "signature-pad",
+    isNew: true,
+    name: "Signature pad",
+    category: "inputs",
+    description: "Ink that swells where you slow down, and wipes away the way you wrote it.",
+    keywords: "signature sign draw pen ink canvas pad handwriting form",
+    previewScale: 0.65,
+  },
   // new-component:entries
 ];
 

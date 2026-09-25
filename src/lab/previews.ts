@@ -187,6 +187,8 @@ import ReactionsDemo from "./components/reactions";
 import ShortcutRecorderDemo from "./components/shortcut-recorder";
 import StorageMeterDemo from "./components/storage-meter";
 import StatusPickerDemo from "./components/status-picker";
+import MoodSliderDemo from "./components/mood-slider";
+import SignaturePadDemo from "./components/signature-pad";
 // new-component:imports
 
 // The index shows every demo at once, so one static bundle beats 27 separate
@@ -380,5 +382,7 @@ export const previews: Record<string, ComponentType> = {
   "shortcut-recorder": ShortcutRecorderDemo,
   "storage-meter": StorageMeterDemo,
   "status-picker": StatusPickerDemo,
+  "mood-slider": MoodSliderDemo,
+  "signature-pad": SignaturePadDemo,
   // new-component:entries
 };
