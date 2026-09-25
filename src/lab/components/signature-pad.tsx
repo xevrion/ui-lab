@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useImperativeHandle, useRef, useState } from "react";
-import { AnimatePresence, animate, motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { usePreviewPlay } from "@/lab/preview-play";
 import { SIGNATURE, SIGNATURE_VIEWBOX } from "@/lib/signature";
@@ -153,7 +153,6 @@ export function SignaturePad({
     const finish = () => {
       strokes.current = [];
       redraw();
-      el.style.clipPath = "";
       setWiping(false);
       setHasInk(false);
       setDone(false);
@@ -161,11 +160,18 @@ export function SignaturePad({
     };
     if (reduceMotion) return finish();
     setWiping(true);
-    animate(el, { clipPath: ["inset(0 0 0 0%)", "inset(0 0 0 100%)"] }, {
-      duration: 0.45,
-      ease: [0.77, 0, 0.175, 1],
-      onComplete: finish,
-    });
+    // The browser's own animation, held at its end until the ink is gone,
+    // then cancelled so the canvas is left with no clip at all. (A library
+    // animation that writes its final value back would leave the canvas
+    // clipped away, and new ink would draw invisibly.)
+    const wipe = el.animate(
+      [{ clipPath: "inset(0 0 0 0%)" }, { clipPath: "inset(0 0 0 100%)" }],
+      { duration: 450, easing: "cubic-bezier(0.77, 0, 0.175, 1)", fill: "forwards" },
+    );
+    wipe.onfinish = () => {
+      finish();
+      wipe.cancel();
+    };
   };
 
   useImperativeHandle(ref, () => ({ begin, move, end, clear }));

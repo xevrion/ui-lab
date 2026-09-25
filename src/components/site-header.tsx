@@ -2,6 +2,7 @@ import Link from "next/link";
 import { siGithub, siX } from "simple-icons";
 import repo from "@/lib/repo.json";
 import { site } from "@/lib/site";
+import { StarCount } from "./github-stars";
 import { HeaderSearch } from "./header-search";
 import { SidebarNav } from "./lab-sidebar";
 import { MobileNav } from "./mobile-nav";
@@ -46,7 +47,7 @@ export function SiteHeader({ title }: { title?: string }) {
           href={site.repo}
           target="_blank"
           rel="noreferrer"
-          aria-label={`Source on GitHub${repo.stars ? `, ${repo.stars} stars` : ""}`}
+          aria-label="Source on GitHub"
           className="group/gh flex h-9 items-center gap-2 rounded-full px-3 text-[13px] font-medium text-foreground outline-hidden transition-[scale,background-color] duration-150 ease-out hover:bg-surface focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-foreground active:scale-[0.96] max-sm:w-9 max-sm:justify-center max-sm:px-0"
         >
           <BrandIcon path={siGithub.path} />
@@ -55,7 +56,8 @@ export function SiteHeader({ title }: { title?: string }) {
               <svg viewBox="0 0 16 16" aria-hidden className="size-3.5" fill="currentColor">
                 <path d="M8 1.6l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.4l-3.8 2 .7-4.3-3.1-3 4.3-.6L8 1.6Z" />
               </svg>
-              {repo.stars}
+              {/* Starts at the count saved at deploy, then updates live. */}
+              <StarCount repo={repo.repo} saved={repo.stars} />
             </span>
           )}
         </a>
