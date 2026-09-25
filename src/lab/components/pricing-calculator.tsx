@@ -174,8 +174,8 @@ export function PricingCalculator({
           reduceMotion={reduceMotion}
         />
         <div className="mt-2 flex items-end justify-between gap-3 border-t border-dashed border-border pt-4">
-          <div className="flex flex-col gap-1">
-            <dt className="text-[14px] font-medium">Total</dt>
+          <dt className="flex flex-col gap-1">
+            <span className="text-[14px] font-medium">Total</span>
             <div className="relative h-5 text-[13px] text-muted">
               <AnimatePresence initial={false} mode="popLayout">
                 <motion.p
@@ -193,7 +193,7 @@ export function PricingCalculator({
                 </motion.p>
               </AnimatePresence>
             </div>
-          </div>
+          </dt>
           <dd className="flex items-baseline gap-2">
             <Struck show={yearly} reduceMotion={reduceMotion}>
               {money(monthly)}

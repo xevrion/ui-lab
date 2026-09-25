@@ -176,7 +176,10 @@ export function FilterList({
           correctly after the list has been scrolled. */}
       <motion.div
         layoutScroll
-        className="relative h-72 overflow-y-auto overscroll-contain rounded-2xl border border-border p-1.5 [scrollbar-width:thin]"
+        tabIndex={0}
+        role="region"
+        aria-label="Filter results"
+        className="relative h-72 overflow-y-auto overscroll-contain rounded-2xl border border-border p-1.5 [scrollbar-width:thin] outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-2 focus-visible:outline-foreground"
       >
         <ul id={`${id}-list`} aria-label="Results" className="relative">
           <AnimatePresence mode="popLayout" initial={false}>

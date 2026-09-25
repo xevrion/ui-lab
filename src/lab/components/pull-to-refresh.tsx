@@ -327,7 +327,10 @@ export function PullToRefresh({
           <div
             ref={scrollerRef}
             aria-busy={refreshing}
-            className="relative h-full overflow-y-auto overscroll-contain"
+            tabIndex={0}
+            role="region"
+            aria-label="Feed"
+            className="relative h-full overflow-y-auto overscroll-contain outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-2 focus-visible:outline-foreground"
             onPointerDown={(e) => {
               if (e.pointerType !== "mouse" || e.button !== 0) return;
               if (busy.current || e.currentTarget.scrollTop > 0 || y.get() < 0) return;

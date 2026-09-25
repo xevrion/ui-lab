@@ -227,7 +227,6 @@ export function TagInput({
             ))}
             <motion.li
               key="input"
-              role="none"
               layout="position"
               transition={{ layout: SLIDE }}
               className="flex min-w-[120px] flex-1"

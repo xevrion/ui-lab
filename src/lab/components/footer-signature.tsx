@@ -257,7 +257,7 @@ export function FooterSignature({
 
         <div className="flex gap-10">
           {columns.map((col) => (
-            <nav key={col.title} aria-label={col.title}>
+            <nav key={col.title} aria-label={`${name}: ${col.title}`}>
               <p className="text-[13px] font-medium text-foreground">{col.title}</p>
               <ul className="mt-2 flex flex-col">
                 {col.links.map((l) => (

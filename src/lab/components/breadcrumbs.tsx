@@ -145,7 +145,7 @@ export function Breadcrumbs({
   return (
     <nav
       ref={navRef}
-      aria-label="Breadcrumb"
+      aria-label="Folder breadcrumb"
       className={cn("relative w-full min-w-0", className)}
     >
       <ol

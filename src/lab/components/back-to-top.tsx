@@ -266,7 +266,10 @@ export default function BackToTopDemo() {
     <div className="relative h-[440px] w-[min(400px,100%)] overflow-hidden rounded-[20px] bg-background shadow-raised">
       <div
         ref={scroller}
-        className="h-full overflow-y-auto overscroll-contain px-7 pt-8 pb-20 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        tabIndex={0}
+        role="region"
+        aria-label="Back to top article"
+        className="h-full overflow-y-auto overscroll-contain px-7 pt-8 pb-20 [scrollbar-width:none] outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-2 focus-visible:outline-foreground [&::-webkit-scrollbar]:hidden"
       >
         <p className="text-[12px] text-muted">Essay · 4 min read</p>
         <h3 className="mt-2 text-[20px] leading-tight font-semibold tracking-tight text-balance text-foreground">

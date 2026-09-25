@@ -191,6 +191,7 @@ export function MiniClock({
     <span
       // Focusable so keyboard users can reveal the date, same as hovering.
       tabIndex={0}
+      role="img"
       aria-label={info ? `${place}, ${info.time} local time, ${info.date}` : place}
       className={cn(
         "group/clock relative inline-flex items-center gap-2.5 rounded-full py-0.5 pr-2 pl-0.5 align-middle text-sm outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground",

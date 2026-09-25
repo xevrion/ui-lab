@@ -95,7 +95,13 @@ export function ReadingProgress({
       )}
     >
       <style>{BAR_CSS}</style>
-      <div ref={scroller} className="h-full overflow-y-auto overscroll-contain">
+      <div
+        ref={scroller}
+        tabIndex={0}
+        role="region"
+        aria-label="Reading article"
+        className="h-full overflow-y-auto overscroll-contain outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-2 focus-visible:outline-foreground"
+      >
         {/* Sticky inside the scroller, so scroll() finds this container as
             its nearest scroll ancestor. */}
         <div className="sticky top-0 z-10 bg-surface">
