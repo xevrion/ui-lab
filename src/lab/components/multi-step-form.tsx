@@ -159,7 +159,7 @@ export function MultiStepForm({
     // The card grows up from a fixed bottom, so Back and Continue never move
     // under the cursor. An invisible copy holding every step at once reserves
     // the tallest height, which keeps the outer box a constant size.
-    <div className={cn("grid w-[420px] max-w-full", className)}>
+    <div className={cn("grid w-[420px] max-w-full grid-cols-[minmax(0,1fr)]", className)}>
       <div
         aria-hidden
         inert
@@ -347,7 +347,7 @@ function PanelContent({
           onChange={(e) => onNameChange(e.target.value)}
           placeholder="Acme Inc"
           autoComplete="organization"
-          className="h-11 rounded-xl bg-background px-3.5 text-[15px] text-foreground shadow-raised outline-hidden placeholder:text-muted focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground"
+          className="h-11 min-w-0 rounded-xl bg-background px-3.5 text-[15px] text-foreground shadow-raised outline-hidden placeholder:text-muted focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground"
         />
       </div>
     );

@@ -211,7 +211,7 @@ const WORDS = ["right", "fast", "alive", "effortless"];
 
 export default function TypewriterDemo() {
   return (
-    <p className="text-xl font-medium tracking-tight text-foreground">
+    <p className="text-base font-medium min-[400px]:text-xl tracking-tight text-foreground">
       <Typewriter prefix="Build interfaces that feel" words={WORDS} />
     </p>
   );

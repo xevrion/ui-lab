@@ -279,7 +279,7 @@ export default function ArrowCalloutDemo() {
   }, [play, reduceMotion, x, y]);
 
   return (
-    <div className="relative flex w-[min(360px,100%)] items-center gap-16 py-8 pl-2">
+    <div className="relative flex w-[min(360px,100%)] items-center justify-between gap-4 py-8 pl-2 sm:gap-16">
       <motion.button
         ref={chip}
         type="button"

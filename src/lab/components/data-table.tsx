@@ -145,10 +145,13 @@ export function DataTable({
       <motion.div
         // Lets layout animations account for this box's scroll offset.
         layoutScroll
+        tabIndex={0}
+        role="region"
+        aria-label="Deployments, scroll for more columns"
         onScroll={(e) => setScrolled(e.currentTarget.scrollTop > 0)}
         // The 44px header plus six 44px rows, so two rows always sit below
         // the fold and the sticky header has something to cover.
-        className="h-[308px] overflow-auto overscroll-contain"
+        className="relative h-[308px] outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-2 focus-visible:outline-foreground overflow-auto overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         <table className="w-full min-w-[560px] border-separate border-spacing-0 text-sm">
           <thead>
@@ -280,14 +283,14 @@ export function DataTable({
         aria-label="Bulk actions"
         inert={!open}
         className={cn(
-          "absolute inset-x-0 bottom-3 mx-auto flex h-11 w-fit items-center gap-0.5 rounded-full bg-foreground py-1 pr-1 pl-4 text-sm text-background shadow-raised",
+          "absolute inset-x-0 bottom-3 mx-auto flex min-h-11 w-fit max-w-[calc(100%-16px)] flex-wrap justify-center items-center gap-0.5 rounded-full bg-foreground py-1 pr-1 pl-4 text-xs min-[400px]:text-sm text-background shadow-raised",
           "transition-[translate,opacity] ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-[opacity]",
           open
             ? "translate-y-0 opacity-100 duration-200"
             : "translate-y-[calc(100%+12px)] opacity-0 duration-150 motion-reduce:translate-y-0",
         )}
       >
-        <span className="pr-2 whitespace-nowrap tabular-nums">
+        <span className="px-1 whitespace-nowrap tabular-nums">
           {shownCount} selected
         </span>
         <span aria-hidden className="mr-1 h-4 w-px bg-background/20" />
@@ -463,7 +466,7 @@ function BarButton({
     <button
       type="button"
       onClick={onClick}
-      className="flex h-9 items-center gap-1.5 rounded-full px-3 font-medium outline-hidden select-none transition-[scale,background-color] duration-150 ease-out hover:bg-background/15 focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-2 focus-visible:outline-background active:scale-[0.96] motion-reduce:transition-[background-color]"
+      className="flex h-9 items-center gap-1.5 rounded-full px-2 font-medium outline-hidden select-none transition-[scale,background-color] duration-150 ease-out hover:bg-background/15 focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-2 focus-visible:outline-background active:scale-[0.96] motion-reduce:transition-[background-color]"
     >
       {children}
     </button>

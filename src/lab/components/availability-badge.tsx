@@ -135,7 +135,7 @@ function Sky({ minutes }: { minutes: number }) {
   const x = 12 + 9 * Math.cos(angle);
   const y = 12 - 8 * Math.sin(angle);
   return (
-    <svg viewBox="0 0 24 14" className="h-4 w-7 shrink-0 overflow-visible" aria-hidden>
+    <svg viewBox="0 0 24 14" className="h-4 w-7 shrink-0 overflow-visible max-[400px]:hidden" aria-hidden>
       <path d="M3 12a9 8 0 0 1 18 0" fill="none" stroke="currentColor" strokeOpacity={0.45} strokeWidth={1} strokeDasharray="1.5 1.5" />
       <path d="M1.5 12h21" stroke="currentColor" strokeOpacity={0.45} strokeWidth={1} />
       <g
@@ -281,7 +281,7 @@ export function AvailabilityBadge({
 
   return (
     <div
-      className={cn("relative h-10 w-fit max-w-full", className)}
+      className={cn("relative h-10 w-full max-w-[400px]", className)}
       onPointerEnter={(e) => {
         if (e.pointerType !== "touch") show();
       }}
@@ -299,7 +299,7 @@ export function AvailabilityBadge({
           the clipped shape, a box-shadow on the card would be clipped away. */}
       {/* Two drop shadows: a hairline that stands in for a border (a real
           border would be clipped at the pill's edge), and the lift. */}
-      <div className="absolute top-0 left-0 z-20 [filter:drop-shadow(0_0_0.5px_light-dark(oklch(0_0_0/0.28),oklch(1_0_0/0.22)))_drop-shadow(0_6px_14px_light-dark(oklch(0_0_0/0.08),oklch(0_0_0/0.5)))]">
+      <div className="absolute top-0 left-0 z-20 w-full [filter:drop-shadow(0_0_0.5px_light-dark(oklch(0_0_0/0.28),oklch(1_0_0/0.22)))_drop-shadow(0_6px_14px_light-dark(oklch(0_0_0/0.08),oklch(0_0_0/0.5)))]">
         <div
           ref={card}
           style={{
@@ -308,7 +308,7 @@ export function AvailabilityBadge({
               : `inset(0 ${clip.right}px ${clip.bottom}px 0 round 20px)`,
           }}
           className={cn(
-            "w-[400px] max-w-[calc(100vw-32px)] bg-background text-foreground dark:bg-surface",
+            "w-full bg-background text-foreground dark:bg-surface",
             "[transition-property:clip-path] ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:duration-0",
             // Opening is the thing being looked at; closing just gets out of
             // the way, so it is quicker.
@@ -382,7 +382,7 @@ export function AvailabilityBadge({
                   {[0, 6, 12, 18].map((h) => (
                     <span
                       key={h}
-                      className="absolute top-0 -translate-x-1/2 tabular-nums first:translate-x-0"
+                      className="absolute top-0 -translate-x-1/2 tabular-nums first:translate-x-0 max-sm:even:hidden"
                       style={{ left: pct(h * 60) }}
                     >
                       {clock(h * 60)}

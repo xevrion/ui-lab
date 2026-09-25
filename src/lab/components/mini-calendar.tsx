@@ -310,7 +310,7 @@ function MonthGrid({
         <table
           role="grid"
           aria-labelledby={labelledBy}
-          className="w-full border-collapse"
+          className="w-full table-fixed border-collapse"
         >
           <thead>
             <tr>
@@ -348,7 +348,7 @@ function MonthGrid({
                         aria-current={iso === today ? "date" : undefined}
                         onClick={() => onSelect(iso)}
                         className={cn(
-                          "relative flex size-11 touch-manipulation items-center justify-center rounded-full text-sm tabular-nums outline-hidden select-none",
+                          "relative mx-auto flex h-11 w-full max-w-11 touch-manipulation items-center justify-center rounded-full text-sm tabular-nums outline-hidden select-none",
                           "transition-[scale,color,background-color] duration-150 ease-out active:scale-[0.96] motion-reduce:transition-[color,background-color]",
                           "focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground",
                           isSelected

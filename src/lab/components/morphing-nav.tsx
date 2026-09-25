@@ -226,9 +226,9 @@ export function MorphingNav({
       }}
     >
       {/* 16 = 10 (trigger radius) + 6 (padding): concentric corners. */}
-      <div className="flex h-[52px] items-center gap-1 rounded-2xl bg-background p-1.5 shadow-raised">
+      <div className="flex min-h-[52px] items-center gap-1 rounded-2xl bg-background p-1.5 shadow-raised">
         {brand && <div className="flex shrink-0 items-center px-2.5 max-sm:hidden">{brand}</div>}
-        <ul className="flex min-w-0 flex-1 items-center gap-0.5">
+        <ul className="flex min-w-0 flex-1 flex-wrap items-center gap-0.5 max-[400px]:grid max-[400px]:grid-cols-2">
           {sections.map((section, index) => {
             const on = active?.index === index;
             return (
@@ -265,7 +265,7 @@ export function MorphingNav({
                   }}
                   onKeyDown={(e) => onTriggerKeyDown(index, e)}
                   className={cn(
-                    "flex h-10 touch-manipulation items-center gap-1 rounded-[10px] px-2.5 text-sm whitespace-nowrap outline-hidden transition-[scale,color,background-color] duration-150 ease-out select-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground active:scale-[0.96] motion-reduce:transition-[color,background-color] sm:px-3",
+                    "flex h-10 touch-manipulation items-center gap-1 rounded-[10px] px-1 text-sm min-[400px]:px-2.5 whitespace-nowrap outline-hidden transition-[scale,color,background-color] duration-150 ease-out select-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground active:scale-[0.96] motion-reduce:transition-[color,background-color] sm:px-3",
                     on
                       ? "bg-surface text-foreground"
                       : "text-muted hover:text-foreground",

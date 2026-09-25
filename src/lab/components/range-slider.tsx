@@ -315,7 +315,7 @@ function ValueField({
   return (
     <label
       htmlFor={id}
-      className="flex h-10 flex-1 cursor-text items-center gap-1.5 rounded-lg bg-surface px-3 text-sm shadow-raised outline-offset-2 outline-foreground has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-solid"
+      className="flex h-10 min-w-0 flex-1 cursor-text items-center gap-1 rounded-lg bg-surface px-2 sm:gap-1.5 sm:px-3 text-sm shadow-raised outline-offset-2 outline-foreground has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-solid"
     >
       <span className="text-muted">{label}</span>
       <span className="ml-auto text-muted" aria-hidden>
@@ -333,7 +333,7 @@ function ValueField({
           if (e.key === "Enter") commit();
           if (e.key === "Escape") setDraft(null);
         }}
-        className="w-16 min-w-0 bg-transparent text-right text-foreground tabular-nums outline-hidden"
+        className="w-16 min-w-0 flex-1 bg-transparent text-right text-foreground tabular-nums outline-hidden"
       />
     </label>
   );

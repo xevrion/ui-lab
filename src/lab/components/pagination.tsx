@@ -45,10 +45,10 @@ const ROLL_DISTANCE = 14;
 // this only lets the tap's own feedback land before the numbers roll.
 const TOUCH_SETTLE_MS = 450;
 
-const slotBox = "relative flex size-9 items-center justify-center sm:size-10";
+const slotBox = "relative flex h-9 min-w-0 flex-1 items-center justify-center sm:size-10 sm:flex-none";
 
 const control =
-  "relative flex size-9 touch-manipulation items-center justify-center rounded-full text-sm font-medium tabular-nums outline-hidden transition-[scale,color,background-color] duration-150 ease-out select-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-foreground sm:size-10 motion-reduce:transition-[color,background-color]";
+  "relative flex h-9 w-full min-w-0 touch-manipulation items-center justify-center rounded-full text-sm font-medium tabular-nums outline-hidden transition-[scale,color,background-color] duration-150 ease-out select-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-foreground sm:size-10 motion-reduce:transition-[color,background-color]";
 
 export function Pagination({
   page,
@@ -147,9 +147,9 @@ export function Pagination({
         <ul
           ref={listRef}
           onKeyDown={onKeyDown}
-          className="relative flex items-center gap-0.5 sm:gap-1"
+          className="relative flex w-full max-w-[340px] items-center gap-0.5 sm:w-auto sm:max-w-none sm:gap-1"
         >
-          <li>
+          <li className="min-w-0 flex-1 sm:flex-none">
             {/* aria-disabled rather than disabled, so a focused arrow keeps
                 focus when it reaches the end instead of dropping it to the page. */}
             <button
@@ -231,7 +231,7 @@ export function Pagination({
             );
           })}
 
-          <li>
+          <li className="min-w-0 flex-1 sm:flex-none">
             <button
               type="button"
               aria-label="Next page"
