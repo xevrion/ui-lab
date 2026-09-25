@@ -150,7 +150,7 @@ export default async function LabPage({ params }: PageProps<"/lab/[slug]">) {
             href={sourceUrl(entry.slug)}
             target="_blank"
             rel="noreferrer"
-            aria-label={`${entry.name} source on GitHub`}
+            aria-label={`View source of ${entry.name} on GitHub`}
             className="inline-flex h-10 shrink-0 items-center gap-2 self-start rounded-full bg-foreground px-4 text-sm font-medium text-background outline-hidden transition-[scale,opacity] duration-150 ease-out hover:opacity-90 focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-foreground active:scale-[0.96]"
           >
             <svg viewBox="0 0 16 16" className="size-4" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden>

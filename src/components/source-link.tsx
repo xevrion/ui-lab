@@ -16,7 +16,7 @@ export function SourceLink({
       href={sourceUrl(slug)}
       target="_blank"
       rel="noreferrer"
-      aria-label={`${name} source on GitHub`}
+      aria-label={`View source of ${name} on GitHub`}
       className={cn(
         "group/link inline-flex items-center gap-0.5 text-sm text-muted transition-[color,scale] duration-150 ease-out hover:text-foreground active:scale-[0.96] motion-reduce:transition-none",
         className,
