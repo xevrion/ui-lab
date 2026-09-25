@@ -19,6 +19,7 @@ export function SiteHeader({ title }: { title?: string }) {
         </MobileNav>
         <Link
           href="/"
+          prefetch={false}
           // The index restores its own scroll position, so Next shouldn't
           // jump to the top first.
           scroll={false}

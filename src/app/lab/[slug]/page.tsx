@@ -140,6 +140,7 @@ export default async function LabPage({ params }: PageProps<"/lab/[slug]">) {
             </p>
             <Link
               href={`/?c=${entry.category}`}
+              prefetch={false}
               className="mt-3 inline-flex h-7 items-center rounded-full bg-surface px-3 text-xs font-medium text-muted outline-hidden transition-[color,background-color] duration-150 ease-out hover:bg-foreground/10 hover:text-foreground focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground"
             >
               {categories.find((c) => c.id === entry.category)?.label}

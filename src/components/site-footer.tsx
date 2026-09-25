@@ -34,6 +34,7 @@ export function SiteFooter() {
         <div className="col-span-2 sm:col-span-1">
           <Link
             href="/"
+            prefetch={false}
             scroll={false}
             className="inline-flex items-baseline gap-2 rounded-sm outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-4 focus-visible:outline-foreground"
           >
@@ -64,7 +65,7 @@ export function SiteFooter() {
                       />
                     </a>
                   ) : (
-                    <Link href={href} className={linkClass}>
+                    <Link href={href} prefetch={false} className={linkClass}>
                       {label}
                     </Link>
                   )}
