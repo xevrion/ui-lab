@@ -93,7 +93,9 @@ export function LogoOrbit({
         const angle = turns[r] + (i / n) * Math.PI * 2;
         const rx = (ring.radius * w) / 2;
         const x = Math.cos(angle) * rx;
-        const y = Math.sin(angle) * rx * TILT;
+        // Height keeps the taller phone stage clear of its wrapped heading.
+        // 0.8 preserves the original ellipse on the desktop 16:10 stage.
+        const y = Math.sin(angle) * ring.radius * h * 0.8 * TILT;
         // -1 at the back of the ring, 1 at the front.
         const depth = Math.sin(angle);
         const near = (depth + 1) / 2;
@@ -144,7 +146,8 @@ export function LogoOrbit({
   return (
     <div
       ref={stageRef}
-      className={cn("relative isolate aspect-[16/10] w-full", className)}
+      // Reserves vertical clearance for the two-line phone heading.
+      className={cn("relative isolate aspect-[16/10] min-h-[360px] w-full", className)}
       onPointerEnter={(e) => {
         if (e.pointerType !== "touch") hovering.current = true;
       }}
@@ -241,7 +244,7 @@ export default function LogoOrbitDemo() {
     <LogoOrbit rings={RINGS} paused={play === false} className="w-[min(600px,100%)]">
       <div className="flex flex-col items-center gap-2">
         <p className="text-[13px] font-medium text-muted">The stack</p>
-        <h2 className="text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-[28px]">
+        <h2 className="max-w-[14ch] text-lg leading-tight font-semibold tracking-tight text-balance sm:max-w-none sm:text-[28px]">
           The tools behind the lab
         </h2>
       </div>
