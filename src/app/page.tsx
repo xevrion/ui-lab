@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { siGithub } from "simple-icons";
 import { JsonLd } from "@/components/json-ld";
-import { LabCard } from "@/components/lab-card";
+import { LabCard, LabPreview } from "@/components/lab-card";
 import { Arrow } from "@/components/arrow";
 import { LabSearch } from "@/components/lab-search";
 import { Underline } from "@/components/underline";
@@ -9,9 +9,7 @@ import { NewMark } from "@/components/new-mark";
 import { ScrollMemory } from "@/components/scroll-memory";
 import { SiteHeader } from "@/components/site-header";
 import { SourceLink } from "@/components/source-link";
-import { previews } from "@/lab/previews";
 import { categories, lab } from "@/lab/registry";
-import { cn } from "@/lib/cn";
 import { absoluteUrl, labPath, site } from "@/lib/site";
 
 // The newest batch leads, so returning visitors see it without scrolling
@@ -139,8 +137,7 @@ export default function Home() {
             category,
           }))}
         >
-          {shown.map(({ slug, name, description, previewScale, previewCrop, isNew }) => {
-            const Preview = previews[slug];
+          {shown.map(({ slug, name, description, previewScale, previewCrop, isNew }, index) => {
             return (
               <LabCard
                 key={slug}
@@ -149,36 +146,13 @@ export default function Home() {
                 // them whenever the card is hovered.
                 className="group/card group/preview relative rounded-[20px] bg-background p-2 shadow-raised transition-[background-color] duration-150 ease-out hover:bg-surface"
               >
-                  {/* Offscreen previews skip rendering until scrolled near, so
-                      the index doesn't paint every live demo at once. It sits
-                      here rather than on the card because it clips like
-                      overflow-hidden, which would cut off the card's shadow. */}
-                  <div
-                    inert
-                    className={cn(
-                      "flex h-56 justify-center overflow-hidden rounded-xl bg-surface transition-[background-color] duration-150 ease-out [content-visibility:auto] group-hover/preview:bg-background",
-                      // Cropped previews start at the top and fade out below,
-                      // like a screenshot of the top of the tool.
-                      previewCrop
-                        ? "items-start pt-4 [mask-image:linear-gradient(to_bottom,black_70%,transparent)]"
-                        : "items-center",
-                    )}
-                  >
-                    {/* As wide as the demo would have at full size (the box
-                        divided by the scale), so demos sized in percentages
-                        resolve as they do on their own page, then the scale
-                        shrinks the whole thing to fit. */}
-                    <div
-                      className="flex shrink-0 justify-center"
-                      style={{
-                        scale: previewScale && String(previewScale),
-                        transformOrigin: previewCrop ? "top" : undefined,
-                        width: `${100 / (previewScale ?? 1)}%`,
-                      }}
-                    >
-                      <Preview />
-                    </div>
-                  </div>
+                  <LabPreview
+                    slug={slug}
+                    // Two rows at the widest grid, with stable placeholders below.
+                    eager={index < 6}
+                    scale={previewScale}
+                    crop={previewCrop}
+                  />
                   <div className="px-2 pt-3 pb-1">
                     {/* Right padding leaves room for the source link. */}
                     <p className="pr-20 text-sm font-medium">

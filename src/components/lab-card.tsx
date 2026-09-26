@@ -2,10 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { PreviewPlayContext } from "@/lab/preview-play";
+import { previews } from "@/lab/previews";
+import { cn } from "@/lib/cn";
 
 // An index card that tells its preview when it's hovered or focused, so the
-// demo inside can act itself out. The cards' contents still render on the
-// server; only this wrapper and the demos that listen re-render.
+// demo inside can act itself out. Card titles stay server-rendered while
+// previews below the first rows mount when they approach the viewport.
 export function LabCard({
   className,
   children,
@@ -23,7 +25,7 @@ export function LabCard({
     const el = ref.current;
     if (!el || !matchMedia("(hover: none)").matches) return;
     const io = new IntersectionObserver(
-      ([entry]) => setPlay(entry.isIntersecting),
+      ([entry]) => setPlay(entry.isIntersecting && entry.intersectionRatio >= 0.6),
       { threshold: 0.6 },
     );
     io.observe(el);
@@ -44,5 +46,63 @@ export function LabCard({
     >
       <PreviewPlayContext value={play}>{children}</PreviewPlayContext>
     </li>
+  );
+}
+
+export function LabPreview({
+  slug,
+  eager,
+  scale,
+  crop,
+}: {
+  slug: string;
+  eager: boolean;
+  scale?: number;
+  crop?: boolean;
+}) {
+  const [ready, setReady] = useState(eager);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (ready || !el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setReady(true);
+        observer.disconnect();
+      },
+      // About two rows ahead, so previews are ready before scrolling into view.
+      { rootMargin: "600px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [ready]);
+
+  const Preview = previews[slug];
+  return (
+    <div
+      ref={ref}
+      inert
+      className={cn(
+        "flex h-56 justify-center overflow-hidden rounded-xl bg-surface transition-[background-color] duration-150 ease-out [content-visibility:auto] group-hover/preview:bg-background",
+        crop
+          ? "items-start pt-4 [mask-image:linear-gradient(to_bottom,black_70%,transparent)]"
+          : "items-center",
+      )}
+    >
+      {ready && (
+        <div
+          className="flex shrink-0 justify-center"
+          style={{
+            scale: scale && String(scale),
+            transformOrigin: crop ? "top" : undefined,
+            width: `${100 / (scale ?? 1)}%`,
+          }}
+        >
+          <Preview />
+        </div>
+      )}
+    </div>
   );
 }
