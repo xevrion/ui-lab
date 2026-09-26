@@ -451,7 +451,7 @@ export function EnvelopeSend({
           className="mt-auto flex items-center justify-between gap-3"
           style={{ opacity: chrome }}
         >
-          <span className="text-xs text-muted">
+          <span className="text-xs text-muted [@media(hover:none)]:invisible">
             <kbd className="font-sans">{modifier}</kbd>
             {" + "}
             <kbd className="font-sans">Enter</kbd> to send

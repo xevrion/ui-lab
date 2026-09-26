@@ -279,7 +279,7 @@ export function TagInput({
           </AnimatePresence>
         </ul>
       </div>
-      <p className="text-xs text-muted">
+      <p className="text-xs text-muted [@media(hover:none)]:hidden">
         Press Enter or comma to add. Backspace twice removes the last tag.
       </p>
       <span className="sr-only" aria-live="polite">
