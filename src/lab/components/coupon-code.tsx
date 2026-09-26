@@ -453,7 +453,7 @@ export function CouponCode({
                   aria-invalid={error ? true : undefined}
                   aria-describedby={`${id}-note`}
                   className={cn(
-                    "h-10 min-w-0 flex-1 rounded-[10px] bg-surface px-3 font-mono text-sm tracking-[0.06em] text-foreground uppercase outline-hidden transition-[box-shadow] duration-150 ease-out placeholder:font-sans placeholder:tracking-normal placeholder:text-muted placeholder:normal-case focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground",
+                    "h-10 min-w-0 flex-1 rounded-[10px] bg-surface px-3 font-mono text-sm tracking-[0.06em] text-foreground uppercase outline-hidden transition-[box-shadow] duration-150 ease-out placeholder:font-sans placeholder:tracking-normal placeholder:text-muted placeholder:normal-case focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground max-sm:text-[16px]",
                     error && "shadow-[inset_0_0_0_1px_var(--color-danger)]",
                   )}
                 />

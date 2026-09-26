@@ -342,7 +342,7 @@ export function EmailTypoFix({
           className={cn(
             // Kerning and ligatures off, here and in the overlay, so letters
             // set one span at a time land exactly where the field draws them.
-            "h-11 w-full rounded-[10px] bg-surface px-3.5 text-[15px] text-foreground outline-hidden [font-kerning:none] [font-variant-ligatures:none] placeholder:text-muted focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground",
+            "h-11 w-full rounded-[10px] bg-surface px-3.5 text-[15px] text-foreground outline-hidden [font-kerning:none] [font-variant-ligatures:none] placeholder:text-muted focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground max-sm:text-[16px]",
             morph && "text-transparent caret-transparent",
           )}
         />
@@ -350,7 +350,7 @@ export function EmailTypoFix({
           <LayoutGroup id={`${id}-morph`}>
             <span
               aria-hidden
-              className="pointer-events-none absolute inset-0 flex items-center px-3.5 text-[15px] whitespace-pre text-foreground [font-kerning:none] [font-variant-ligatures:none]"
+              className="pointer-events-none absolute inset-0 flex items-center px-3.5 text-[15px] max-sm:text-[16px] whitespace-pre text-foreground [font-kerning:none] [font-variant-ligatures:none]"
             >
               <AnimatePresence mode="popLayout" initial={false}>
                 {morphGlyphs.map((glyph, index) => {

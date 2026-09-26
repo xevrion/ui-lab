@@ -174,7 +174,7 @@ export function ExpandingSearch({
           }}
           style={{ width }}
           className={cn(
-            "absolute inset-y-0 left-0 bg-transparent pr-10 pl-9 text-sm outline-hidden [&::-webkit-search-cancel-button]:appearance-none",
+            "absolute inset-y-0 left-0 bg-transparent pr-10 pl-9 text-sm outline-hidden [&::-webkit-search-cancel-button]:appearance-none max-sm:text-[16px]",
             !open && "invisible",
           )}
         />
@@ -191,7 +191,7 @@ export function ExpandingSearch({
                 ? PLACEHOLDER_IN
                 : PLACEHOLDER_OUT
           }
-          className="pointer-events-none absolute top-1/2 left-9 -translate-y-1/2 text-sm whitespace-nowrap text-muted"
+          className="pointer-events-none absolute top-1/2 left-9 -translate-y-1/2 text-sm max-sm:text-[16px] whitespace-nowrap text-muted"
         >
           {placeholder}
         </motion.span>

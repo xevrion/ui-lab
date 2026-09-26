@@ -199,7 +199,7 @@ export function PasswordField({
             onValueChange?.(e.target.value);
           }}
           className={cn(
-            "h-11 w-full rounded-xl border border-border bg-background pr-12 pl-3.5 text-[15px] caret-foreground outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-1 focus-visible:outline-foreground",
+            "h-11 w-full rounded-xl border border-border bg-background pr-12 pl-3.5 text-[15px] caret-foreground outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-1 focus-visible:outline-foreground max-sm:text-[16px]",
             // The overlay draws the characters while it runs; the caret stays.
             morph ? "text-transparent" : "text-foreground",
           )}
@@ -209,7 +209,7 @@ export function PasswordField({
             key={morph.id}
             aria-hidden
             // Same box and type as the input's text: 1px border + 14px padding.
-            className="pointer-events-none absolute inset-y-0 right-12 left-[15px] overflow-hidden text-[15px] whitespace-pre text-foreground"
+            className="pointer-events-none absolute inset-y-0 right-12 left-[15px] overflow-hidden text-[15px] max-sm:text-[16px] whitespace-pre text-foreground"
           >
             <style href="password-field" precedence="default">
               {MORPH_CSS}

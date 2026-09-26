@@ -335,7 +335,7 @@ function PanelContent({
 }) {
   if (panel === 0) {
     return (
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 [&_input]:max-sm:text-[16px]">
         <Heading title="Name your workspace" note="You can change this later." />
         <label htmlFor={`${prefix}-name`} className="sr-only">
           Workspace name

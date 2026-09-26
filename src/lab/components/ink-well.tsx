@@ -223,7 +223,7 @@ export function InkWell({
           rows={6}
           style={RULED}
           className={cn(
-            "block h-[208px] min-w-0 flex-1 resize-none rounded-xl bg-background px-4 py-3.5 text-[15px] leading-6 text-foreground shadow-raised outline-hidden transition-[box-shadow] duration-150 ease-out placeholder:text-muted focus:shadow-[0_0_0_1.5px_var(--foreground)]",
+            "block h-[208px] min-w-0 flex-1 resize-none rounded-xl bg-background px-4 py-3.5 text-[15px] leading-6 text-foreground shadow-raised outline-hidden transition-[box-shadow] duration-150 ease-out placeholder:text-muted focus:shadow-[0_0_0_1.5px_var(--foreground)] max-sm:text-[16px]",
             remaining < 0 &&
               "shadow-[0_0_0_1.5px_var(--danger)] focus:shadow-[0_0_0_1.5px_var(--danger)]",
           )}

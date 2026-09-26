@@ -567,7 +567,7 @@ function Column({
             listRef.current?.scrollTo({ top: listRef.current.scrollHeight }),
           );
         }}
-        className="mt-2 h-10 w-full min-w-0 rounded-lg bg-background px-3 text-sm text-foreground shadow-raised outline-hidden transition-[box-shadow,opacity] duration-150 ease-out placeholder:text-muted focus:shadow-[0_0_0_1.5px_var(--foreground)] disabled:opacity-60"
+        className="mt-2 h-10 w-full min-w-0 rounded-lg bg-background px-3 text-sm text-foreground shadow-raised outline-hidden transition-[box-shadow,opacity] duration-150 ease-out placeholder:text-muted focus:shadow-[0_0_0_1.5px_var(--foreground)] disabled:opacity-60 max-sm:text-[16px]"
       />
     </section>
   );

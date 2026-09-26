@@ -258,7 +258,7 @@ export function RevealPasswordField({
           type={visible ? "text" : "password"}
           autoComplete="current-password"
           spellCheck={false}
-          className="h-10 w-full rounded-lg border border-border bg-background pr-11 pl-3 text-[15px] text-foreground shadow-[0_1px_2px_oklch(0_0_0/0.04)] outline-hidden transition-[border-color,box-shadow] duration-150 ease-out focus-visible:border-foreground/40 focus-visible:shadow-[0_0_0_3px_color-mix(in_oklch,var(--foreground)_10%,transparent)]"
+          className="h-10 w-full rounded-lg border border-border bg-background pr-11 pl-3 text-[15px] text-foreground shadow-[0_1px_2px_oklch(0_0_0/0.04)] outline-hidden transition-[border-color,box-shadow] duration-150 ease-out focus-visible:border-foreground/40 focus-visible:shadow-[0_0_0_3px_color-mix(in_oklch,var(--foreground)_10%,transparent)] max-sm:text-[16px]"
         />
         <EyeToggle
           visible={visible}

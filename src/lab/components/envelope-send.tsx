@@ -365,7 +365,7 @@ export function EnvelopeSend({
               }}
               placeholder={placeholder}
               readOnly={phase !== "compose"}
-              className="block size-full resize-none rounded-[12px] bg-transparent py-4 pr-[68px] pl-4 text-[15px] leading-6 text-foreground outline-hidden placeholder:text-muted focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-foreground"
+              className="block size-full resize-none rounded-[12px] bg-transparent py-4 pr-[68px] pl-4 text-[15px] leading-6 text-foreground outline-hidden placeholder:text-muted focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-foreground max-sm:text-[16px]"
             />
           </motion.div>
 

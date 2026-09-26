@@ -273,7 +273,7 @@ export function TagInput({
                 }}
                 // 10px in, the same as a chip's text, so a typed tag becomes a
                 // chip without its letters shifting.
-                className="h-8 w-full min-w-0 bg-transparent pr-2 pl-2.5 text-sm text-foreground outline-hidden placeholder:text-muted"
+                className="h-8 w-full min-w-0 bg-transparent pr-2 pl-2.5 text-sm text-foreground outline-hidden placeholder:text-muted max-sm:text-[16px]"
               />
             </motion.li>
           </AnimatePresence>

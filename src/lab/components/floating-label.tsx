@@ -101,7 +101,7 @@ export function FloatingLabel({
             // label (7px down, 12px text in a 16px line box, so done by 23px),
             // so typed text and label never share a pixel. A fixed 20px line
             // height keeps that math independent of the page's leading.
-            "peer h-13 w-full rounded-xl border bg-background pt-[22px] pr-10 pb-2 pl-3.5 text-[15px]/5 text-foreground outline-hidden transition-[border-color] duration-150 ease-out",
+            "peer h-13 w-full rounded-xl border bg-background pt-[22px] pr-10 pb-2 pl-3.5 text-[15px]/5 text-foreground outline-hidden transition-[border-color] duration-150 ease-out max-sm:text-[16px]",
             "focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-1",
             invalid
               ? "border-danger focus-visible:outline-danger"
@@ -116,7 +116,7 @@ export function FloatingLabel({
           htmlFor={id}
           data-floated={floated || undefined}
           className={cn(
-            "group/label pointer-events-none absolute top-4 left-3.5 origin-top-left text-[15px]/5 whitespace-nowrap select-none",
+            "group/label pointer-events-none absolute top-4 left-3.5 origin-top-left text-[15px]/5 max-sm:text-[16px] whitespace-nowrap select-none",
             "transition-[scale,color] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-[color]",
             // Centered at 16px from the top, it shrinks to 80% (12px) while
             // its letters rise 9px, to sit 7px from the top.

@@ -226,7 +226,7 @@ export function CardInput({
     onFocus: () => setFocused(field),
     onBlur: () => blur(field),
     className: cn(
-      "h-11 w-full rounded-xl border bg-background px-3.5 text-[15px] text-foreground tabular-nums outline-hidden transition-[border-color] duration-150 ease-out placeholder:text-muted/70 focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-1",
+      "h-11 w-full rounded-xl border bg-background px-3.5 text-[15px] text-foreground tabular-nums outline-hidden transition-[border-color] duration-150 ease-out placeholder:text-muted/70 focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-1 max-sm:text-[16px]",
       errors[field]
         ? "border-danger focus-visible:outline-danger"
         : "border-border focus-visible:outline-foreground",

@@ -124,7 +124,7 @@ export function RangeSlider({
   const summary = `${format(low)} to ${format(high)}`;
 
   return (
-    <div className={cn("flex w-[min(440px,100%)] flex-col gap-3", className)}>
+    <div className={cn("flex w-[min(440px,100%)] flex-col gap-3 [&_input]:max-sm:text-[16px]", className)}>
       <div className="flex items-baseline justify-between">
         <span id={`${id}-label`} className="text-sm font-medium text-foreground">
           {label}

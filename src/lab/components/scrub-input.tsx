@@ -269,7 +269,7 @@ export function ScrubInput({
         aria-valuemin={Number.isFinite(min) ? min : undefined}
         aria-valuemax={Number.isFinite(max) ? max : undefined}
         value={draft ?? format(value)}
-        className="h-full min-w-0 flex-1 bg-transparent pr-2.5 text-sm text-foreground tabular-nums outline-hidden"
+        className="h-full min-w-0 flex-1 bg-transparent pr-2.5 text-sm text-foreground tabular-nums outline-hidden max-sm:text-[16px]"
         onFocus={(e) => {
           setDraft(format(value));
           e.currentTarget.select();

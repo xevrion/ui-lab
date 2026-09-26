@@ -101,7 +101,7 @@ export function FilterList({
             e.preventDefault();
             setQuery("");
           }}
-          className="h-12 w-full rounded-[14px] border border-border bg-background pr-12 pl-11 text-[15px] text-foreground outline-hidden placeholder:text-muted focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-1 focus-visible:outline-foreground [&::-webkit-search-cancel-button]:appearance-none"
+          className="h-12 w-full rounded-[14px] border border-border bg-background pr-12 pl-11 text-[15px] text-foreground outline-hidden placeholder:text-muted focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-1 focus-visible:outline-foreground [&::-webkit-search-cancel-button]:appearance-none max-sm:text-[16px]"
         />
         {/* 10px radius inside the 14px field with 4px of inset: concentric.
             Kept mounted so it swaps with the icon recipe both ways. */}

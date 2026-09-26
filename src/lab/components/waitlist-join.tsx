@@ -462,7 +462,7 @@ export function WaitlistJoin({
                   if (email.trim()) setTouched(true);
                 }}
                 className={cn(
-                  "h-11 min-w-0 flex-1 rounded-[12px] bg-surface px-3.5 text-[15px] text-foreground outline-hidden transition-[box-shadow] duration-150 ease-out placeholder:text-muted focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground",
+                  "h-11 min-w-0 flex-1 rounded-[12px] bg-surface px-3.5 text-[15px] text-foreground outline-hidden transition-[box-shadow] duration-150 ease-out placeholder:text-muted focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground max-sm:text-[16px]",
                   error && "shadow-[inset_0_0_0_1px_var(--color-danger)]",
                 )}
               />

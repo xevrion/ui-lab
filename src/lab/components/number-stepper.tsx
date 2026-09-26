@@ -293,7 +293,7 @@ export function NumberStepper({
           // The text stays invisible until typing starts; the rolling copy
           // above sits exactly on it.
           className={cn(
-            "col-start-1 row-start-1 w-full bg-transparent text-center text-[15px] font-medium tabular-nums caret-foreground outline-hidden",
+            "col-start-1 row-start-1 w-full bg-transparent text-center text-[15px] font-medium tabular-nums caret-foreground outline-hidden max-sm:text-[16px]",
             editing ? "text-foreground" : "text-transparent",
           )}
         />
@@ -301,7 +301,7 @@ export function NumberStepper({
         {!editing && (
           <RollingNumber
             value={value}
-            className="pointer-events-none col-start-1 row-start-1 text-[15px] font-medium text-foreground"
+            className="pointer-events-none col-start-1 row-start-1 text-[15px] max-sm:text-[16px] font-medium text-foreground"
           />
         )}
       </span>

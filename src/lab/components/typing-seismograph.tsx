@@ -375,7 +375,7 @@ export function TypingSeismograph({
               kick(1, delta > 1 ? Math.min(2, 1 + delta / 40) : 1);
             }
           }}
-          className="block h-28 w-full resize-none bg-transparent px-3.5 py-3 text-[15px] leading-relaxed text-foreground outline-hidden placeholder:text-muted"
+          className="block h-28 w-full resize-none bg-transparent px-3.5 py-3 text-[15px] leading-relaxed text-foreground outline-hidden placeholder:text-muted max-sm:text-[16px]"
         />
         <div className="relative border-t border-border bg-surface">
           <canvas

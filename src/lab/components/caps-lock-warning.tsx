@@ -67,7 +67,7 @@ export function CapsLockPasswordField({
           onBlur={() => setFocused(false)}
           // Right padding is fixed for both the keycap and the button, so
           // the text never shifts when the keycap arrives.
-          className="h-10 w-full rounded-lg border border-border bg-background pr-[84px] pl-3 text-[15px] text-foreground shadow-[0_1px_2px_oklch(0_0_0/0.04)] outline-hidden transition-[border-color,box-shadow] duration-150 ease-out placeholder:text-muted focus-visible:border-foreground/40 focus-visible:shadow-[0_0_0_3px_color-mix(in_oklch,var(--foreground)_10%,transparent)]"
+          className="h-10 w-full rounded-lg border border-border bg-background pr-[84px] pl-3 text-[15px] text-foreground shadow-[0_1px_2px_oklch(0_0_0/0.04)] outline-hidden transition-[border-color,box-shadow] duration-150 ease-out placeholder:text-muted focus-visible:border-foreground/40 focus-visible:shadow-[0_0_0_3px_color-mix(in_oklch,var(--foreground)_10%,transparent)] max-sm:text-[16px]"
         />
 
         <div className="pointer-events-none absolute inset-y-0 right-10 flex items-center">

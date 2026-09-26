@@ -322,7 +322,7 @@ export function ChatThread({
             }
           }}
           // Grows with its content up to five lines, then scrolls.
-          className="max-h-[120px] min-h-10 flex-1 resize-none rounded-[20px] bg-surface px-4 py-2.5 text-[15px] leading-5 text-foreground outline-hidden [field-sizing:content] placeholder:text-muted focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-0 focus-visible:outline-foreground"
+          className="max-h-[120px] min-h-10 flex-1 resize-none rounded-[20px] bg-surface px-4 py-2.5 text-[15px] leading-5 text-foreground outline-hidden [field-sizing:content] placeholder:text-muted focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-0 focus-visible:outline-foreground max-sm:text-[16px]"
         />
         <button
           type="submit"

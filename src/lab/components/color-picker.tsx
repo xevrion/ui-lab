@@ -342,7 +342,7 @@ export function ColorPicker({
             spellCheck={false}
             autoComplete="off"
             autoCapitalize="characters"
-            className="min-w-0 flex-1 bg-transparent pl-0.5 uppercase outline-hidden"
+            className="min-w-0 flex-1 bg-transparent pl-0.5 uppercase outline-hidden max-sm:text-[16px]"
             onFocus={(e) => e.currentTarget.select()}
             onChange={() => {
               if (invalid) setInvalid(false);

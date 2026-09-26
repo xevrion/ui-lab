@@ -262,7 +262,7 @@ export function Combobox({
             }}
             onKeyDown={onKeyDown}
             onBlur={() => setOpen(false)}
-            className="h-full min-w-0 flex-1 bg-transparent pr-11 text-[15px] text-foreground outline-hidden placeholder:text-muted"
+            className="h-full min-w-0 flex-1 bg-transparent pr-11 text-[15px] text-foreground outline-hidden placeholder:text-muted max-sm:text-[16px]"
           />
           <button
             type="button"
