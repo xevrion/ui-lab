@@ -264,7 +264,7 @@ export function FooterSignature({
                   <li key={l.label}>
                     <a
                       href={l.href}
-                      className="-mx-1 inline-flex h-8 items-center rounded-md px-1 outline-hidden transition-[color] duration-150 ease-out hover:text-foreground focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground"
+                      className="-mx-1 inline-flex h-8 min-w-6 items-center rounded-md px-1 outline-hidden transition-[color] duration-150 ease-out hover:text-foreground focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground"
                     >
                       {l.label}
                     </a>

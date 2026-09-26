@@ -243,7 +243,7 @@ export function TestimonialHighlight({
                   onClick={() => go(i)}
                   aria-label={`Testimonial from ${t.name}`}
                   aria-current={on ? "true" : undefined}
-                  className="group flex h-9 w-5 touch-manipulation items-center justify-center rounded-full outline-hidden transition-[scale] duration-150 ease-out focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground active:scale-[0.96]"
+                  className="group flex h-9 w-6 touch-manipulation items-center justify-center rounded-full outline-hidden transition-[scale] duration-150 ease-out focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground active:scale-[0.96]"
                 >
                   <span
                     className={cn(

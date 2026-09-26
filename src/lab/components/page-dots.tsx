@@ -13,7 +13,8 @@ import { cn } from "@/lib/cn";
 
 const DOT = 6;
 const PILL = 20;
-const GAP = 6;
+// A 6px dot plus 18px of space gives each target at least 24px.
+const GAP = 18;
 // How far each edge of the pill travels between two pages.
 const STEP = DOT + GAP;
 
@@ -173,9 +174,9 @@ function Dot({
       aria-label={`Page ${index + 1} of ${count}`}
       aria-current={current ? "page" : undefined}
       onClick={() => onSelect(index)}
-      // Reaches half the 6px gap past each side of its dot, so the hit areas
+      // Reaches half the 18px gap past each side of its dot, so the hit areas
       // tile the row with no dead space between them.
-      className="group absolute inset-y-0 -ml-[3px] box-content flex touch-manipulation items-center rounded-full px-[3px] outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground"
+      className="group absolute inset-y-0 -ml-[9px] box-content flex touch-manipulation items-center rounded-full px-[9px] outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-foreground"
       style={{ left, width }}
     >
       <span className="h-1.5 w-full rounded-full bg-foreground/20 transition-[background-color,scale] duration-150 ease-out group-hover:bg-foreground/35 group-active:scale-[0.96]" />
