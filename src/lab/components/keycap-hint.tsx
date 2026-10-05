@@ -30,7 +30,7 @@ function matchesKey(k: KeyName, e: KeyboardEvent, isMac: boolean) {
   if (k === "shift") return e.key === "Shift";
   if (k === "alt") return e.key === "Alt";
   // code, not key, so Shift or a non-Latin layout still lights the cap.
-  return e.code === `Key${k.toUpperCase()}` || e.key.toLowerCase() === k.toLowerCase();
+  return e.code === `Key${k.toUpperCase()}` || e.key?.toLowerCase() === k.toLowerCase();
 }
 
 function isHeld(k: KeyName, e: KeyboardEvent, isMac: boolean) {

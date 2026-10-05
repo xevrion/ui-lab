@@ -141,7 +141,7 @@ export function CommandPalette({
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key.toLowerCase() !== "k" || !(e.metaKey || e.ctrlKey)) return;
+      if (e.key?.toLowerCase() !== "k" || !(e.metaKey || e.ctrlKey)) return;
       if (e.altKey || e.shiftKey || e.repeat) return;
       // Inert copies, like the index preview, stay quiet.
       if (triggerRef.current?.closest("[inert]")) return;

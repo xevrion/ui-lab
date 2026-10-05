@@ -114,7 +114,15 @@ export function LabSearch({
             ? `${count} of ${entries.length}`
             : `${entries.length} experiments`}
         </p>
-        <div className="relative w-full max-w-64">
+        {/* Its own form: the index also holds password demos outside any
+            form, and Chrome pairs every loose field on a page with them and
+            fills this box with the saved login. */}
+        <form
+          role="search"
+          autoComplete="off"
+          onSubmit={(e) => e.preventDefault()}
+          className="relative w-full max-w-64"
+        >
           <svg
             viewBox="0 0 16 16"
             aria-hidden
@@ -156,7 +164,7 @@ export function LabSearch({
               /
             </kbd>
           )}
-        </div>
+        </form>
       </div>
 
       {/* Scrolls sideways on a phone instead of wrapping into a tall block;

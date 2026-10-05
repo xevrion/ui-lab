@@ -80,7 +80,7 @@ export function HeaderSearch() {
   // ⌘K / Ctrl K from any page toggles it, the shortcut people already try.
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key.toLowerCase() !== "k" || !(e.metaKey || e.ctrlKey)) return;
+      if (e.key?.toLowerCase() !== "k" || !(e.metaKey || e.ctrlKey)) return;
       // A demo on the page (the command palette) already took it.
       if (e.defaultPrevented) return;
       e.preventDefault();
